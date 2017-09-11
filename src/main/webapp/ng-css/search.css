@@ -1,158 +1,170 @@
-#search
-{
-  float: left;
+#contenedorSearch{
+  position:relative;
+  float:left;
   width: 100%;
+  height: auto;
   min-height: 100vh;
+  background-image:url('../ng-img/fondo.jpg');
+  background-size: cover;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  padding-top: 35px;
 }
 
-#search #searchWrapper
+#contenedorSearch::before 
 {
-  position: relative;
-  max-width: 500px;
-  padding: 15px;
-  margin: 55px 0 25px 0;
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(50, 50, 50, 0.2);
-  box-shadow: inset 1px 1px 4px rgba(50, 50, 50, 0.15);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3); /*ultimo punto es opacidad*/
+    background-image: url("http://img.abravogal.com/noise/dark.png"); /*le ponemos textura*/
+    z-index: 0;
+     
+}
+
+#cuadroSearch{
+    position: relative;
+    margin: 0 auto;
+/*    left:620px;
+    top:80px;*/
+    max-width: 300px;
+    margin-bottom:25px;
+    padding:10px 15px;
+    border-radius: 2px;
+    border: 1px solid rgba(248, 130, 130, 1);
+    box-shadow: 0 0 10px rgba(248, 130, 130, 1); /*sombras*/
+    background-color:white;
+    
+    
+}
+@media all and (max-width: 1279px)
+{
+/*  #cuadroSearch
+  {
+    position: absolute;
+    left:350px;
+    top:80px;
+  }*/
 }
 
 
-#search #searchWrapper > input[type="text"]
-{
-  width: 250px;
-  float: left;
-  padding-right: 45px;
-}
 
 
-#search #searchWrapper > div
+#contenedorSearch #cuadroSearch > input[type="text"]
 {
-  position: absolute;
-  z-index: 3;
-  top: 8px;
-  right: 25px;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  border-radius: 100%;
-  display: inline-flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-}
-
-#search #searchWrapper > div span
-{
-  font-size: 0.8rem;
-  color: rgba(50, 50, 50, 0.7);
-  font-weight: bold;
-}
-
-#search #searchWrapper > div span.notFound
-{
-  color: rgba(245, 50, 50, 1);
-}
-
-#search #searchWrapper::before
-{
-  content: '';
-  position: absolute;
-  z-index: 2;
-  top: 8px;
-  right: 25px;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: inset 0 0 0 2px rgba(50, 50, 50, 0.25);
-}
-
-#search #searchWrapper::after
-{
-  content: '';
-  position: absolute;
-  z-index: 1;
-  top: 18px;
-  right: 33px;
-  width: 3px;
-  height: 20px;
-  border-radius: 2px;
-  background-color: rgba(50, 50, 50, 0.25);
-  transform-origin: top right;
-  transform: rotate(-35deg);
-}
-
-#search #items
-{
-  float: left;
-  clear: both;
   width: 100%;
-  padding: 20px;
+  float: left;
+  padding-right: 55px;
+}
+
+#cuadroSearch::before{
+    content:'';
+    position:absolute;
+    z-index: 1;
+    right: 35px;
+    top:5px;
+    width: 17px;
+    height: 17px;
+    border-radius: 100%;
+    border: 1px solid rgba(248, 130, 130, 1);
+    box-shadow: inset 1px 1px 4px rgba(50, 50, 50, 0.15);
+    background: white;
+    
+}
+
+#cuadroSearch::after{
+    content:'';
+    position:absolute;
+    z-index: 0;
+    right: 27px;;
+    top:12px;
+    width: 16px;
+    height: 12px;
+    border-left:2px solid rgba(248, 130, 130, 1);
+    transform: rotate(-35deg);
+    transform-origin: top right;
+    
+}
+
+
+#contador{ /* numero lupa*/
+    position:absolute;
+    z-index: 2;
+    right: 38px;
+    top:7px;
+    color: purple;
+    
+}
+
+#contador.notFound span /*numero lupa en rojo*/
+    { 
+          color: rgba(245, 50, 50, 1);
+    }
+
+#contenedorSearch #contenedorRdo
+{
+  position:relative;
+/*  top:140px;*/
+  width: 100%;
+  padding:20px;
+  /*z-index: 1;*/
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: stretch;
   align-items: stretch;
+  
 }
-
 
 @media all and (max-width: 767px)
 {
-  #search #items
+  #contenedorSearch #contenedorRdo
   {
     padding: 5px;
   }
 }
 
-
-#search #items article
+#contenedorSearch #contenedorRdo article
 {
   width: 25%;
   float: left;
   padding: 20px;
 }
 
-
 @media all and (max-width: 1279px)
 {
-  #search #items article
+  #contenedorSearch #contenedorRdo article
   {
-    width: 33.33%;
+    width: 70%;
+    margin:0px 100px 0px 140px;
+     background-size: cover;
+     height: auto;
   }
 }
 
 
 @media all and (max-width: 979px)
 {
-  #search #items article
+  #contenedorSearch #contenedorRdo article
   {
-    width: 50%;
+    width: 90%;
   }
 }
-
 
 @media all and (max-width: 767px)
 {
-  #search #items article
-  {
-    width: 100%;
-    padding: 12px 20px;
-  }
+    #contenedorSearch #contenedorRdo article
+    {
+        width: 100%;
+        padding: 12px 20px;
+    }
+
 }
 
-
-#search #items article > *
+#contenedorSearch #contenedorRdo article > *
 {
   float: left;
   padding: 0px;
@@ -164,7 +176,7 @@
   box-shadow:  1px 1px 2px rgba(50, 50, 50, 0.25);
 }
 
-#search #items article > * > figure
+#contenedorSearch #contenedorRdo article > * > figure
 {
   float: left;
   width: 100%;
@@ -176,10 +188,17 @@
   background-size: cover;
 }
 
+@media all and (max-width: 767px)
+{
+  #contenedorSearch #contenedorRdo article > * > figure
+  {
+    min-height: 60vw;
+  }
+}
 
 @media all and (max-width: 1279px)
 {
-  #search #items article > * > figure
+  #contenedorSearch #contenedorRdo article > * > figure
   {
     min-height: 20vw;
   }
@@ -188,69 +207,64 @@
 
 @media all and (max-width: 979px)
 {
-  #search #items article > * > figure
+  #contenedorSearch #contenedorRdo article > * > figure
   {
     min-height: 30vw;
   }
 }
 
 
-@media all and (max-width: 767px)
-{
-  #search #items article > * > figure
-  {
-    min-height: 60vw;
-  }
-}
-
-
-#search #items article > * > div
+#contenedorSearch #contenedorRdo article > * > div
 {
   float: left;
   width: 100%;
   padding: 10px 20px;
 }
 
-#search #items article > * > div h1,
-#search #items article > * > div p
+#contenedorSearch #contenedorRdo article > * > div h1,
+#contenedorSearch #contenedorRdo article > * > div p
 {
   float: left;
   width: 100%;
   padding: 10px 0;
 }
 
-#search #items article > * > div h1
+#contenedorSearch #contenedorRdo article > * > div h1.span
 {
   text-transform: uppercase;
   border-bottom: 1px solid rgba(50, 50, 50, 0.2);
+  /*estas ultimas 3 propiedades es para cuando tenga un nombre muy largo, que ponga puntos suspensivos si sobrepasa el ancho*/
+  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+}
+@media all and (max-width: 1279px)
+{
+    #contenedorSearch #contenedorRdo article > * > div h1
+    {
+     font-size: 30px;
+  
+    }
 }
 
-#search #items article > * > div p, #search #items article > * > div p *
+#contenedorSearch #contenedorRdo article > * > div p
 {
   text-align: justify;
   line-height: 1.4rem;
   overflow: hidden;
+  
 }
 
-#search #items article > * > div p:first-letter
+@media all and (max-width: 1279px)
 {
-  text-transform: uppercase;
-}
+    #contenedorSearch #contenedorRdo article > * > div p
+    {
+      font-size: 15px;
 
-#search #items article *.found
-{
-  position: relative;
-}
+    }
+}    
+.searchSubrayado
+    {
+        background-color: yellow;
+    }
 
-#search #items article *.found::before
-{
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  border-bottom: 2px solid rgba(255, 155, 50, 0.75);
-}

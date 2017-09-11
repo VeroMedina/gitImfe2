@@ -10,26 +10,31 @@ app.config(['$routeProvider', '$locationProvider',
     })
     .when('/',
     {
-      templateUrl: GBL_COFG.urlTemplate('ini.html')
+      templateUrl: GBL_COFG.urlTemplate('inicio.html')
     })
-    .when('/about',
+    .when('/info',
     {
-      templateUrl: GBL_COFG.urlTemplate('about.html'),
-      controller: 'ngAppControllerAbout'
+      templateUrl: GBL_COFG.urlTemplate('info.html'),
+/*      controller: 'ngAppControllerAbout'*/
     })
-    .when('/test-bbdd',
+    .when('/test',
     {
-      templateUrl: GBL_COFG.urlTemplate('test-bbdd.html'),
-      controller: 'ngAppControllerTestBbdd'
+      templateUrl: GBL_COFG.urlTemplate('test.html'),
+      controller: 'ng-app-controller-test'
     })
     .when('/kirby',
     {
       templateUrl: GBL_COFG.urlTemplate('kirby.html')
     })
+     .when('/insertItems', //controlador de java
+    {
+      templateUrl: GBL_COFG.urlTemplate('formInsert.html')
+      controller: 'ng-app-controller-formInsert'
+    })
     .when('/search',
     {
       templateUrl: GBL_COFG.urlTemplate('search.html'),
-      controller: 'ngAppControllerSearch'
+      controller: 'ng-app-controller-search'
     });
   }]);
 

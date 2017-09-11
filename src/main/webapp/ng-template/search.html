@@ -1,22 +1,31 @@
-<div id="search">
-
-  <fieldset id="searchWrapper">
-    <input type="text" ng-keyup="searchFn($event)" placeholder="Buscar Item"/>
-    <div id="msg">
-        <span>{{msg}}</span>
+<div id="contenedorSearch">
+    <fieldset id="cuadroSearch">
+        <!-- con $event envio el objeto que obtengo del input a la funcion search -->
+        <input type="text" placeholder="Buscador"  ng-keyup="search($event)"/>
+        
+        <div id="contador">
+        <span>{{contador}}</span>
+        </div>
+        
+    </fieldset>
+    <div id="contenedorRdo">
+          <article ng-repeat="x in bbdd track by $index">
+              <section>
+                  
+                    <figure style="background-image: url('{{x.url}}')">
+                    </figure>
+                    <div>
+                        
+                        <h1 ng-bind-html="x.nombre"></h1>
+                        <p  ng-bind-html="x.descripcion"></p>
+                        
+                    </div>
+                  
+              </section>
+                  
+          </article>
+        
     </div>
-  </fieldset>
+ 
 
-  <div id="items">
-    <article ng-repeat="item in items track by $index" name="item-{{item.id}}">
-        <section>
-          <figure style="background-image: url('{{item.url}}')">
-          </figure>
-          <div>
-            <h1 ng-bind-html="item.nombre"></h1>
-            <p ng-bind-html="item.descripcion"></p>
-          </div>
-        </section>
-      </article>
-    </div>
 </div>
