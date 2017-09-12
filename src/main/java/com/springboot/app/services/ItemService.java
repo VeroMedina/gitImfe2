@@ -15,9 +15,24 @@ import com.springboot.app.persistence.models.ItemModel;
  */
 public interface ItemService 
 {
-//     public List<ItemModel> searchCadenaService(ItemModel obj) throws Exception;
+
        public List<ItemModel> searchAllService(ItemModel obj) throws Exception;
        public List<ItemModel> searchItemsService(ItemModel obj) throws Exception;
 //       public List<ItemModel> insertItemsService(ItemModel obj) throws Exception;
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
  //     public List<ItemModel> searchNumeroService(ItemModel obj) throws Exception;
+//     public List<ItemModel> searchCadenaService(ItemModel obj) throws Exception;
 }

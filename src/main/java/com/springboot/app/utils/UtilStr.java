@@ -23,16 +23,30 @@ public class UtilStr
   }
 
   
+  
+  
+  
+  /**
+   * METODO PARA BUSCAR COINCIDENCIA ENTRE DOS STRINGS PASADOS POR PARAMETROS
+   * @param nombre -> parametro original introducido por un input
+   * @param nombre2 -> parametro que es el resultado de la busqueda en la bbdd segun el parametro original
+   * @return -> devuelve un boleano
+   */
   public static Matcher coinciden(String nombre, String nombre2) {
 	return  pattern(nombre).matcher(nombre2);
 		
 	}
   
+  
+  
+  
+  
+  
   /**
-	 * METODO PARA GENERAR UN PATRON.
+	 * METODO PARA GENERAR UN PATRON, PATRON QUE NO ES SENSIBLE A MAYUSCULAS Y MINUSCULAS Y QUITA TODOS LOS ESPACIOS
 	 *
-	 * @param obj
-	 *  Cadena a insertar en el patron de busqueda.
+	 * @param -> recibe un string, el cual sera modificado para el patron
+	 *  
 	 *
 	 * @return Patron generado.
 	 */
@@ -44,17 +58,23 @@ public class UtilStr
 	
 	
 	
+	
+	
 	/**
-	 * METODO PARA REALIZAR UN REMPLAZO DE UNA CADENA POR UN TAG HTML.
+	 * METODO PARA REALIZAR UN REMPLAZO DE UNA CADENA POR UNA CLASE HTML.
 	 *
-	 * @param str
-	 *            Cadena a insertar en el tag.
+	 * @param str -> recibe un string , cadena a insertar en la clase html.
+	 *           
 	 *
 	 * @return tag generado en html.
 	 */
 	public static String patternReplaceHtml(String str) {
 		return "<span class=\"searchSubrayado\">" + str + "</span>";
 	}
+	
+	
+	
+	
 	
 	
 
@@ -70,12 +90,12 @@ public class UtilStr
 	 * -------------------------------------
 	 *
 	 *
-	 * @param str
-	 *            Cadena a procesar.
+	 * @param str -> Cadena a procesar.
+	 *           
 	 *
 	 * @return Cadena convertida a UTF-8.
 	 */
-	public String replaceChar(String str) {
+	public static String replaceChar(String str) {
 		String normalize = str.replace("ñ", "\001");
 
 		normalize = Normalizer.normalize(normalize, Normalizer.Form.NFD);
