@@ -40,64 +40,64 @@ public class ItemServiceImpl implements ItemService {
 	  {
 	    List<ItemModel> x = iMapper.searchItemsMapper(obj);
 
-	    List<ItemModel> list = this.replaceSearch(obj, x);
+//	    List<ItemModel> list = this.replaceSearch(obj, x);
 
-	    return list;
+	    return x;
 	  }
 	
 	
-	@Override
-	public List<ItemModel> insertItemsService(ItemModel obj) throws Exception {
-		
-		List<ItemModel> x = iMapper.insertItemsMapper(obj);
-
-	    return x;
-	}
-
-	
-	/**
-	 * Metodo que recibe el objeto buscado y la lista de los objetos buscados
-	 * 
-	 * @param obj
-	 *            -> nombre buscado
-	 * @param y
-	 *            -> lista de objetos buscados con todos sus propiedades
-	 * @return -> devuelve la lista de los objetos buscados pero con su estilo
-	 *         cambiado
-	 */
-	private List<ItemModel> replaceSearch (ItemModel obj, List<ItemModel> x) 
-	{
-		//Creo la lista nueva
-		List<ItemModel> listaNueva = new ArrayList <ItemModel>();
-		
-		for (ItemModel item : x) 
-		{
-			obj = UtilStr.replaceChar(obj.getNombre());
-//			item = UtilStr.replaceChar(item);
-			 
-			
-			String original =  item.getNombre();
-
-			
-			  Matcher bool = UtilStr.coinciden(obj, item.getNombre());
-			
-			if(bool.find())
-			{
-			
-				original = original.substring(bool.start(), bool.end());
-				
-				 UtilStr.pattern(obj).matcher(item.getNombre()).replaceAll(UtilStr.patternReplaceHtml(original));
-				
-				listaNueva.add(item);
-			}
-			
-//			item.setNombre(this.replaceStr(obj.getNombre(), item.getNombre()));
+//	@Override
+//	public List<ItemModel> insertItemsService(ItemModel obj) throws Exception {
+//		
+//		List<ItemModel> x = iMapper.insertItemsMapper(obj);
 //
-//			item.setDescripcion(this.replaceStr(obj.getDescripcion(), item.getDescripcion()));
-		}
-
-		return listaNueva;
-	}
+//	    return x;
+//	}
+//
+//	
+//	/**
+//	 * Metodo que recibe el objeto buscado y la lista de los objetos buscados
+//	 * 
+//	 * @param obj
+//	 *            -> nombre buscado
+//	 * @param y
+//	 *            -> lista de objetos buscados con todos sus propiedades
+//	 * @return -> devuelve la lista de los objetos buscados pero con su estilo
+//	 *         cambiado
+//	 */
+//	private List<ItemModel> replaceSearch (ItemModel obj, List<ItemModel> x) 
+//	{
+//		//Creo la lista nueva
+//		List<ItemModel> listaNueva = new ArrayList <ItemModel>();
+//		
+//		for (ItemModel item : x) 
+//		{
+//			obj = UtilStr.replaceChar(obj.getNombre());
+////			item = UtilStr.replaceChar(item);
+//			 
+//			
+//			String original =  item.getNombre();
+//
+//			
+//			  Matcher bool = UtilStr.coinciden(obj, item.getNombre());
+//			
+//			if(bool.find())
+//			{
+//			
+//				original = original.substring(bool.start(), bool.end());
+//				
+//				 UtilStr.pattern(obj).matcher(item.getNombre()).replaceAll(UtilStr.patternReplaceHtml(original));
+//				
+//				listaNueva.add(item);
+//			}
+//			
+////			item.setNombre(this.replaceStr(obj.getNombre(), item.getNombre()));
+////
+////			item.setDescripcion(this.replaceStr(obj.getDescripcion(), item.getDescripcion()));
+//		}
+//
+//		return listaNueva;
+//	}
 
 	/**
 	 * METODO PARA REEMPLAZAR LA CADENA BUSCADA EN UN STRING.

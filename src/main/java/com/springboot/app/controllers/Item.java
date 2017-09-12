@@ -47,18 +47,18 @@ public class Item
     
   }
    
-   @ResponseBody
-   @RequestMapping(value = "/insertItems",
-                  method = RequestMethod.POST,
-                  produces = MediaType.APPLICATION_JSON_VALUE) //vamos a usar Json
-  public List<ItemModel> insertItems(@RequestBody ItemModel obj) throws Exception
-  {
-        
-      List<ItemModel> y = iService.insertItemsService(obj);
-
-      return y;
-    
-  }
+//   @ResponseBody
+//   @RequestMapping(value = "/insertItems",
+//                  method = RequestMethod.POST,
+//                  produces = MediaType.APPLICATION_JSON_VALUE) //vamos a usar Json
+//  public List<ItemModel> insertItems(@RequestBody ItemModel obj) throws Exception
+//  {
+//        
+//      List<ItemModel> y = iService.insertItemsService(obj);
+//
+//      return y;
+//    
+//  }
   
   
 //    @ResponseBody

@@ -24,11 +24,11 @@ app.config(['$routeProvider', '$locationProvider',
     })
     .when('/kirby',
     {
-      templateUrl: GBL_COFG.urlTemplate('kirby.html')
+      templateUrl: GBL_COFG.urlTemplate('kirby.html'),
     })
      .when('/insertItems', //controlador de java
     {
-      templateUrl: GBL_COFG.urlTemplate('formInsert.html')
+      templateUrl: GBL_COFG.urlTemplate('formInsert.html'),
       controller: 'ng-app-controller-formInsert'
     })
     .when('/search',
