@@ -96,65 +96,84 @@ public class ItemServiceImpl implements ItemService
 		
 	
 	
-	/**
-	 * METODO QUE RECIBE EL OBJETO BUSCADO Y LA LISTA DE LOS OBJETOS BUSCADOS DE LA BBDD. SI EL OBJETO BUSCADO COINCIDE CON EL DE LA BBDD
-	 * SERA REEMPLAZADO SU ESTILO
-	 * 
-	 * @param obj -> objeto,nombre o descripcion buscado.
-	 *            
-	 * @param x -> lista de objetos de la bbdd buscados con todos sus propiedades
-	 *            
-	 * @return -> devuelve la lista de los objetos buscados pero con su estilo
-	 *         cambiado
-	 */
+  /**
+   * METODO QUE RECIBE EL OBJETO BUSCADO Y LA LISTA DE LOS OBJETOS BUSCADOS DE
+   * LA BBDD. SI EL OBJETO BUSCADO COINCIDE CON EL DE LA BBDD SERA REEMPLAZADO
+   * SU ESTILO
+   *
+   * @param obj -> objeto,nombre o descripcion buscado.
+   *
+   * @param x -> lista de objetos de la bbdd buscados con todos sus propiedades
+   *
+   * @return -> devuelve la lista de los objetos buscados pero con su estilo
+   * cambiado
+   */
 	private List<ItemModel> replaceSearch (ItemModel obj, List<ItemModel> x) 
 	{
 		//Creo la lista nueva
-		List<ItemModel> listaNueva = new ArrayList <ItemModel>();
+		List<ItemModel> listaNueva = new ArrayList <>();
 		
-		//Recorro el resultado de la bbdd de los items encontrados segun la busqueda
-    //En item va los resutaldos de x
+    /**
+     * Recorro el resultado de la bbdd de los items encontrados segun la
+     * busqueda en item va los resutaldos de x.
+     */
 		for (ItemModel item : x) 
 		{
+      // Booleanos para comprobar coincidencias en la cadena.
       boolean name = false;
       boolean desc = false;
       
 			
-      //Guardo en una variable el dato original de la bbdd
+      /**
+       * Se almacena el dato original de la bbdd, para su posterior uso en la 
+       * sustitucion final.
+       */
 			String original = item.getNombre(); 
 			String buscado = obj.getNombre();
 			
-      //Guardo en una variable el dato original de la bbdd
-			String originalDescrip = item.getDescripcion(); 
-			String buscadoDescrip = obj.getDescripcion();
-			
-			//Ejecuto metodo para convertir a UTF-8(sin acento) la palabra que viene de la bbdd
+			// Conversion a UTF-8(sin acento) la palabra que viene de la bbdd
 			String originalUTF = UtilStr.replaceChar(original); 
-      //Ejecuto metodo para convertir a UTF-8(sin acento) la palabra que se busca
+      // Conversion a UTF-8(sin acento) la palabra que se busca
 			buscado = UtilStr.replaceChar(buscado); 
 			
  
 			
-			 		//Ejecutamos metodo para comprobar que lo buscado coincide con lo encontrado y si es que si devuelve un true
-		    Matcher bool = UtilStr.coinciden(buscado, originalUTF); 
+      /**
+       * Creacion de un objeto MATCHER para posteriormente:
+       * 1- Evaluar empate (true | false). --> find()
+       * 2- Inicio y final de una cadena. --> start()/end()
+       */
+		    Matcher objMatch = UtilStr.coinciden(buscado, originalUTF); 
  
 
-			  //Si coincide la busqueda
-			if(bool.find())
+			 // 1- Evaluar empate (true | false). --> find()
+			if(objMatch.find())
 			{
         System.out.println("bool.find() ---> ");
         
-			// Meto en la variable 'original' la parte de la palabra de la bbdd que coincide con lo buscado
-				original = original.substring(bool.start(), bool.end());
+			// 2- Inicio y final de una cadena. --> start()/end()
+				original = original.substring(objMatch.start(), objMatch.end());
 
 			
-				//Reemplazame todo lo que coincida con 'item.getNombre' y 'original' y a su vez coincida con lo buscado
-				item.setNombre(UtilStr.pattern(buscado).matcher(originalUTF).replaceAll(UtilStr.patternReplaceHtml(original)));
-
+        /**
+         * Reemplazame todo lo que coincida con 'item.getNombre' y 'original' y
+         * a su vez coincida con lo buscado.
+         *
+         * (item -> original) == buscado
+         */
+	       item.setNombre(
+                 UtilStr.pattern(buscado).matcher(originalUTF)
+                         .replaceAll(UtilStr.patternReplaceHtml(original))
+         );
     
 				name = true;
 			}
 			
+      
+      
+       //Guardo en una variable el dato original de la bbdd
+			String originalDescrip = item.getDescripcion(); 
+			String buscadoDescrip = obj.getDescripcion();
       
             //Ejecuto metodo para convertir a UTF-8(sin acento) la palabra que viene de la bbdd
 			String originalDescripUTF = UtilStr.replaceChar(originalDescrip);
