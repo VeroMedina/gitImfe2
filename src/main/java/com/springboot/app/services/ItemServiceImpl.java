@@ -113,48 +113,77 @@ public class ItemServiceImpl implements ItemService
 		List<ItemModel> listaNueva = new ArrayList <ItemModel>();
 		
 		//Recorro el resultado de la bbdd de los items encontrados segun la busqueda
-		for (ItemModel item : x) //En item va los resutaldos de x
+    //En item va los resutaldos de x
+		for (ItemModel item : x) 
 		{
+      boolean name = false;
+      boolean desc = false;
+      
 			
-			String original = item.getNombre(); //Guardo en una variable el dato original de la bbdd
+      //Guardo en una variable el dato original de la bbdd
+			String original = item.getNombre(); 
 			String buscado = obj.getNombre();
 			
-			String originalDescrip = item.getDescripcion(); //Guardo en una variable el dato original de la bbdd
+      //Guardo en una variable el dato original de la bbdd
+			String originalDescrip = item.getDescripcion(); 
 			String buscadoDescrip = obj.getDescripcion();
 			
+			//Ejecuto metodo para convertir a UTF-8(sin acento) la palabra que viene de la bbdd
+			String originalUTF = UtilStr.replaceChar(original); 
+      //Ejecuto metodo para convertir a UTF-8(sin acento) la palabra que se busca
+			buscado = UtilStr.replaceChar(buscado); 
 			
-			original = UtilStr.replaceChar(original); //Ejecuto metodo para convertir a UTF-8(sin acento) la palabra que viene de la bbdd
-			buscado = UtilStr.replaceChar(buscado); //Ejecuto metodo para convertir a UTF-8(sin acento) la palabra que se busca
+ 
 			
-			originalDescrip = UtilStr.replaceChar(originalDescrip); //Ejecuto metodo para convertir a UTF-8(sin acento) la palabra que viene de la bbdd
-			buscadoDescrip = UtilStr.replaceChar(buscadoDescrip); //Ejecuto metodo para convertir a UTF-8(sin acento) la palabra que se busca
-			
-			 		
-		    Matcher bool = UtilStr.coinciden(buscado, original); //Ejecutamos metodo para comprobar que lo buscado coincide con lo encontrado y si es que si devuelve un true
-			Matcher boolDescrip = UtilStr.coinciden(buscadoDescrip, originalDescrip); //Ejecutamos metodo para comprobar que lo buscado coincide con lo encontrado y si es que si devuelve un true
+			 		//Ejecutamos metodo para comprobar que lo buscado coincide con lo encontrado y si es que si devuelve un true
+		    Matcher bool = UtilStr.coinciden(buscado, originalUTF); 
+ 
 
-			  
-			if(bool.find())//Si coincide la busqueda
+			  //Si coincide la busqueda
+			if(bool.find())
 			{
-			
-				original = original.substring(bool.start(), bool.end());// Meto en la variable 'original' la parte de la palabra de la bbdd que coincide con lo buscado
+        System.out.println("bool.find() ---> ");
+        
+			// Meto en la variable 'original' la parte de la palabra de la bbdd que coincide con lo buscado
+				original = original.substring(bool.start(), bool.end());
 
 			
 				//Reemplazame todo lo que coincida con 'item.getNombre' y 'original' y a su vez coincida con lo buscado
-				item.setNombre(UtilStr.pattern(buscado).matcher(item.getNombre()).replaceAll(UtilStr.patternReplaceHtml(original)));
+				item.setNombre(UtilStr.pattern(buscado).matcher(originalUTF).replaceAll(UtilStr.patternReplaceHtml(original)));
 
-				listaNueva.add(item); //Añade el nuevo item con el estilo modificado a la nueva lista
-				
+    
+				name = true;
 			}
 			
+      
+            //Ejecuto metodo para convertir a UTF-8(sin acento) la palabra que viene de la bbdd
+			String originalDescripUTF = UtilStr.replaceChar(originalDescrip);
+      
+       System.out.println("originalDescripUTF ---> " + originalDescripUTF);
+      //Ejecuto metodo para convertir a UTF-8(sin acento) la palabra que se busca
+			buscadoDescrip = UtilStr.replaceChar(buscadoDescrip);
+      
+      System.out.println("buscadoDescrip ---> " + buscadoDescrip);
+      
+             //Ejecutamos metodo para comprobar que lo buscado coincide con lo encontrado y si es que si devuelve un true
+			Matcher boolDescrip = UtilStr.coinciden(buscadoDescrip, originalDescripUTF); 
 			if (boolDescrip.find())
 			{
-				originalDescrip = originalDescrip.substring(boolDescrip.start(), boolDescrip.end());// Meto en la variable 'original' la parte de la palabra de la bbdd que coincide con lo buscado
+        System.out.println("boolDescrip.find() ---> ");
+        // Meto en la variable 'original' la parte de la palabra de la bbdd que coincide con lo buscado
+				originalDescrip = originalDescrip.substring(boolDescrip.start(), boolDescrip.end());
 				
-				item.setDescripcion(UtilStr.pattern(buscadoDescrip).matcher(item.getDescripcion()).replaceAll(UtilStr.patternReplaceHtml(originalDescrip)));
-				
-				listaNueva.add(item); //Añade el nuevo item con el estilo modificado a la nueva lista
+				item.setDescripcion(UtilStr.pattern(buscadoDescrip).matcher(originalDescripUTF).replaceAll(UtilStr.patternReplaceHtml(originalDescrip)));
+
+        desc = true;
 			}
+      
+      if(name || desc)
+      {
+         System.out.println("LISTA ---> ");
+            //Anade el nuevo item con el estilo modificado a la nueva lista
+				listaNueva.add(item); 
+      }
 			
 			
 		}
