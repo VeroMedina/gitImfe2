@@ -40,8 +40,8 @@ public class ItemMapperImpl implements ItemMapper
 	  {
 	    String sql = UtilStr.removeSpaces(" SELECT * " +
 	                 " FROM items " +
-	                 " WHERE (nombre LIKE '%" + obj.getNombre() + "%') " +
-	                 " OR (descripcion LIKE '%" + obj.getDescripcion() + "%') " +
+	                 " WHERE (nombre LIKE '%" + obj.getPropiedad() + "%') " +
+	                 " OR (descripcion LIKE '%" + obj.getPropiedad() + "%') " +
 	                 " ORDER BY id DESC ");
 
 	    return JdbcTemplate.query(sql, new BeanPropertyRowMapper(ItemModel.class));

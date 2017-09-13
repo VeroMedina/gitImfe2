@@ -33,32 +33,27 @@ public class Item {
 	}
 
 	@ResponseBody
-   @RequestMapping(value = "/searchItems",
-                  method = RequestMethod.POST,
-                  produces = MediaType.APPLICATION_JSON_VALUE) //vamos a usar Json
+	@RequestMapping(value = "/searchItems", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE) // vamos
+																														// a
+																														// usar
+																														// Json
 	public List<ItemModel> searchItems(@RequestBody ItemModel obj) throws Exception {
-		
-		
-		
+
 		List<ItemModel> y = null;
 
-		if (UtilStr.removeSpaces(obj.getPropiedad()).length() > 0) 
-		{
+		if (UtilStr.removeSpaces(obj.getPropiedad()).length() > 0) {
 			y = iService.searchItemsService(obj);
 
-			if (y.size() > 0) 
-			{
+			if (y.size() > 0) {
 				y = iService.subrayarItemsService(obj, y);
 			}
-		} 
-		else 
-		{
+		} else {
 			y = iService.searchAllService(obj);
 		}
 
 		return y;
 
-  }
+	}
 
 	// @ResponseBody
 	// @RequestMapping(value = "/insertItems",

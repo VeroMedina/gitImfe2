@@ -72,7 +72,7 @@ app.controller('ng-app-controller-search',
         	  
                 $http.post('/searchItems',  //Ejecuto funcion para introducir un controlador java u otro segun sea numero o cadena
                   {
-                    propiedad: val, //Envio la propiedad el value capturado del input al controlador java /search
+                    propiedad: val, //Envio el value capturado del input al controlador java /search
                      
 
                   })
