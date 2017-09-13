@@ -113,7 +113,7 @@ public class ItemServiceImpl implements ItemService {
 			 * sustitucion final.
 			 */
 			String original = item.getNombre();
-			String buscado = obj.getNombre();
+			String buscado = obj.getPropiedad();
 
 			// Conversion a UTF-8(sin acento) de la palabra que viene de la bbdd
 			String originalUTF = UtilStr.replaceChar(original);
@@ -149,7 +149,7 @@ public class ItemServiceImpl implements ItemService {
 
 			// Guardo en una variable el dato original de la bbdd
 			String originalDescrip = item.getDescripcion();
-			String buscadoDescrip = obj.getDescripcion();
+			String buscadoDescrip = obj.getPropiedad();
 
 			// Ejecuto metodo para convertir a UTF-8(sin acento) la palabra que viene de la
 			// bbdd

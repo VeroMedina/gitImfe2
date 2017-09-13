@@ -37,7 +37,9 @@ public class Item {
                   method = RequestMethod.POST,
                   produces = MediaType.APPLICATION_JSON_VALUE) //vamos a usar Json
 	public List<ItemModel> searchItems(@RequestBody ItemModel obj) throws Exception {
-
+		
+		
+		
 		List<ItemModel> y = null;
 
 		if (UtilStr.removeSpaces(obj.getPropiedad()).length() > 0) 
