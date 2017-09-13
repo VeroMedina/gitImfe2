@@ -13,6 +13,7 @@ public class ItemModel {
     private String descripcion;
     private String url;
     private String peso;
+    private String propiedad;
 
     public int getId() {
         return id;
@@ -53,5 +54,13 @@ public class ItemModel {
     public void setPeso(String peso) {
         this.peso = peso;
     }
+
+	public String getPropiedad() {
+		return propiedad;
+	}
+
+	public void setPropiedad(String propiedad) {
+		this.propiedad = propiedad;
+	}
     
 }
