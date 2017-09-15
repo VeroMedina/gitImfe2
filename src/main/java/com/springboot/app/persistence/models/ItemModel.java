@@ -14,6 +14,7 @@ public class ItemModel {
     private String url;
     private String peso;
     private String propiedad;
+    private int rdosql;
 
     public int getId() {
         return id;
@@ -62,5 +63,14 @@ public class ItemModel {
 	public void setPropiedad(String propiedad) {
 		this.propiedad = propiedad;
 	}
-    
+
+	public int getRdosql() {
+		return rdosql;
+	}
+
+	public void setRdosql(int rdosql) {
+		this.rdosql = rdosql;
+	}
+
+
 }
