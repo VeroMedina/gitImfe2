@@ -14,7 +14,7 @@ import com.springboot.app.utils.UtilStr;
 
 
 @Repository
-public class TestPruebaMapperImpl implements testPruebaMapper
+public class TestPruebaMapperImpl implements TestPruebaMapper
 {
 	@Autowired
 	JdbcTemplate JdbcTemplate;
@@ -68,6 +68,8 @@ public class TestPruebaMapperImpl implements testPruebaMapper
 	    
 	    return rdo;
 	  }
+
+	
 
 	
 	

@@ -15,11 +15,9 @@ import com.springboot.app.persistence.models.ItemModel;
  */
 public interface ItemMapper 
 {
-//  public List<ItemModel> searchCadenaMapper (ItemModel obj) throws Exception;
+
     public List<ItemModel> searchAllMapper (ItemModel obj) throws Exception;
     public List<ItemModel> searchItemsMapper (ItemModel obj) throws Exception;
-//  public List<ItemModel> searchNumeroMapper (ItemModel obj) throws Exception;
-	public int insertItemsMapper(ItemModel item)throws Exception;
-	public int deleteItemsMapper(ItemModel obj) throws Exception;
-	public int updateItemsMapper(ItemModel obj) throws Exception;
+
+	
 }

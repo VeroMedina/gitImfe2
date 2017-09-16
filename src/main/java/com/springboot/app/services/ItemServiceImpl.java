@@ -26,6 +26,9 @@ public class ItemServiceImpl implements ItemService {
 	@Autowired
 	ItemMapper iMapper;
 
+	
+	
+	
 	/**
 	 * METODO PARA BUSCAR TODOS LOS ITEMS DE LA BBDD return -> devuelve una lista de
 	 * items o objetos
@@ -38,6 +41,9 @@ public class ItemServiceImpl implements ItemService {
 		return y;
 	}
 
+	
+	
+	
 	/**
 	 * METODO PARA BUSCAR UN ITEM POR NOMBRE O DESCRIPCION return -> devuelve una
 	 * lista de items o objetos
@@ -51,32 +57,6 @@ public class ItemServiceImpl implements ItemService {
 		return x;
 	}
 
-	 /**
-	 * METODO PARA INSERTAR ITEMS EN LA BBDD
-	 * @param obj
-	 * @return
-	 * @throws Exception
-	 */
-	 @Override
-	 public int insertOneItemsService(List<ItemModel> obj) throws Exception {
-		 
-		
-		 int cont=0;
-		 
-		 for (ItemModel item : obj) 
-			{
-			 		  
-			  
-			  int x = iMapper.insertItemsMapper(item);
-			  
-			  cont+=x;
-				
-			  
-			}
-		 
-	
-	 return cont;
-	 }
 
 	/**
 	 ********************************************** 

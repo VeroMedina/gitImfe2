@@ -48,44 +48,5 @@ public class ItemMapperImpl implements ItemMapper
 	  }
 
 
-	@Override
-	public int insertItemsMapper(ItemModel obj) throws Exception 
-	{
-		 String sql = UtilStr.removeSpaces(
-		            " INSERT INTO items " +
-		            " (nombre, " +
-		            "  descripcion, " +
-		            "  url) " +
-		            " VALUES " +
-		            " ('" + obj.getNombre() + "'" +
-		            " ,'" + obj.getDescripcion() + "'" +
-		            " ,'" + obj.getUrl() + "')");
-
-		    return JdbcTemplate.update(sql);
-		  }
 	
-	@Override
-	  public int updateItemsMapper(ItemModel obj) throws Exception
-	  {
-	    String sql = UtilStr.removeSpaces(
-	            " UPDATE items     " +
-	            " SET nombre=     '" + obj.getNombre() + "'" +
-	            "    ,descripcion='" + obj.getDescripcion() + "'" +
-	            "    ,url=        '" + obj.getUrl() + "'" +
-	            " WHERE id=        " + obj.getId());
-
-	    return JdbcTemplate.update(sql);
-	  }
-
-
-	  @Override
-	  public int deleteItemsMapper(ItemModel obj) throws Exception
-	  {
-	    String sql = UtilStr.removeSpaces(
-	            " DELETE FROM items " +
-	            " WHERE id=         " + obj.getId());
-
-	    return JdbcTemplate.update(sql);
-	  }
-
 }

@@ -19,21 +19,7 @@ public interface ItemService
        public List<ItemModel> searchAllService(ItemModel obj) throws Exception;
        public List<ItemModel> searchItemsService(ItemModel obj) throws Exception;
        public List<ItemModel> subrayarItemsService(ItemModel obj, List<ItemModel> x) throws Exception;
-       public int insertOneItemsService(List<ItemModel> obj) throws Exception;
+     
        
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
- //     public List<ItemModel> searchNumeroService(ItemModel obj) throws Exception;
-//     public List<ItemModel> searchCadenaService(ItemModel obj) throws Exception;
+ 
 }
