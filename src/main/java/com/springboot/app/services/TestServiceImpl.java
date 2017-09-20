@@ -22,7 +22,7 @@ public class TestServiceImpl implements TestService
   {
     List<TestModel> x = iMapper.testMapper(obj);
     
-    return x;
+    return null;
   }
   
   

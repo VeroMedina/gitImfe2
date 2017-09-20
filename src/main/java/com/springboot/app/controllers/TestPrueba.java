@@ -45,16 +45,16 @@ public class TestPrueba {
 		
 		array.add(item);
 
-		int y = iService.insertOneItemsService(array);
+//		int y = iService.insertOneItemsService(array);
+//
+//		if (y > 0) {
+//
+//			item.setRdosql(y);
+//		}
+//
+//		System.out.println("Se ha añadido" + item.getRdosql() + "registros");
 
-		if (y > 0) {
-
-			item.setRdosql(y);
-		}
-
-		System.out.println("Se ha añadido" + item.getRdosql() + "registros");
-
-		return y;
+		return 0;
 
 	}
 

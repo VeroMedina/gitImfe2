@@ -9,7 +9,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>AngularSpring</name>
+  <name>VERO</name>
   <description>Spring Boot and Angular JS</description>
 
   <parent>
