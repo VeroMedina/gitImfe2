@@ -29,11 +29,11 @@ public class Test
                   produces = MediaType.APPLICATION_JSON_VALUE) //vamos a usar Json
   public List<TestModel> test(@RequestBody TestModel obj) throws Exception
   {
-      System.out.println(obj.getPropiedad());
-      System.out.println(obj.getTable());
-      
+//      System.out.println("Propiedad" +obj.getPropiedad());
+//      System.out.println("Tabla" +obj.getTable());
+//      
       List<TestModel> x = iService.testService(obj);
-
+      
     return x;
   }
   

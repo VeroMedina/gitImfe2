@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.springboot.app.persistence.models.ItemModel;
+import com.springboot.app.persistence.models.TestPruebaModel;
 import com.springboot.app.services.ItemService;
+import com.springboot.app.services.TestPruebaService;
 import com.springboot.app.utils.UtilStr;
 
 @Controller
@@ -20,44 +22,67 @@ public class TestPrueba {
 	
 	
 	@Autowired
-	ItemService iService;
+	TestPruebaService iService;
 
 
 	@ResponseBody
-	@RequestMapping(value = "/insertOneItems", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public int insertItems(@RequestBody ItemModel obj) throws Exception {
+	@RequestMapping(value = "/insertItems", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public TestPruebaModel insertItems(@RequestBody ItemModel obj) throws Exception 
+	{
 
 		
-		ItemModel item = new ItemModel();
+//		ItemModel item = new ItemModel();
+////		
+////		List <ItemModel> array = new ArrayList <>();
+////		
+////	
+//		item.setNombre("Tarta red velvet");
+//		item.setDescripcion("muy dulce");
+//		item.setUrl("https://static.guiainfantil.com/pictures/recetas/4826-4-tarta-red-velvet-receta-paso-a-paso-para-sorprender.jpg");
+////		
+////		array.add(item);
+////		
+////		item.setNombre("Tarta galletas");
+////		item.setDescripcion("la mejor tarta");
+////		item.setUrl("https://www.recetassinlactosa.com/wp-content/uploads/2016/06/Tarta-de-galletas-y-moka.jpg");
+////		
 		
-		List <ItemModel> array = new ArrayList <>();
-		
-	
-		item.setNombre("Tarta red Velvet");
-		item.setDescripcion("tarta roja con crema de queso");
-		item.setUrl("https://static.guiainfantil.com/pictures/recetas/4826-4-tarta-red-velvet-receta-paso-a-paso-para-sorprender.jpg");
-		
-		array.add(item);
-		
-		item.setNombre("Tarta galletas");
-		item.setDescripcion("la mejor tarta");
-		item.setUrl("https://www.recetassinlactosa.com/wp-content/uploads/2016/06/Tarta-de-galletas-y-moka.jpg");
-		
-		array.add(item);
 
-//		int y = iService.insertOneItemsService(array);
-//
+		TestPruebaModel y = iService.insertItemsService(obj);
+
 //		if (y > 0) {
 //
 //			item.setRdosql(y);
 //		}
 //
-//		System.out.println("Se ha añadido" + item.getRdosql() + "registros");
+		System.out.println("Se ha añadido" + y.getRdosql() + "registros");
 
-		return 0;
+		return y;
 
 	}
-
 	
+	@ResponseBody
+	@RequestMapping(value = "/updateItems", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public TestPruebaModel updateItems(@RequestBody ItemModel obj) throws Exception 
+	{
+		
+		TestPruebaModel y = iService. updateItemsService(obj);
+		
+		
+		return y;
+	
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/deleteItems", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public TestPruebaModel deleteItems(@RequestBody ItemModel obj) throws Exception 
+	{
+		
+		TestPruebaModel y = iService. deleteItemsService(obj);
+		
+		
+		return y;
+	
+	}
 
 }

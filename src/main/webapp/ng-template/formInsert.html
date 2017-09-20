@@ -1,8 +1,17 @@
 
-<form ng-repeat="x in bbdd">
+<!-- <form ng-repeat="x in bbdd"> -->
 
-	<input ng-repeat="(key,value) in x" type="text" name="{{key}}" value="{{value}}"/>
+<!-- 	<input ng-repeat="(key,value) in x" type="text" name="{{key}}" value="{{value}}"/> -->
+	
 
+<!-- </form> -->
 
-</form>
- 
+ 	<select id="contSelect" >
+ 	
+		<option  ng-repeat="x in bbdd">{{x.table}}</option>
+	  
+	</select>
+	
+	<input id="botonSelect" type="button" value="Check"  ng-click="count()"/>
+	
+	<span id="botonSelect" >{{c}} </span>
