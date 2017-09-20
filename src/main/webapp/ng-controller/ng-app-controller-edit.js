@@ -1,31 +1,20 @@
-app.controller('ng-app-controller-test', 
+app.controller('ng-app-controller-edit', 
 ['$scope', '$http','$timeout', function ($scope,$http,$timeout)
   {
-    $scope.testOk=false;
+	 (function () 
+		        {
+		            
+		            $http.post('/searchAll',{}) //nombre del controlador java
+		            .then(function (response)
+		            {
+		                var data=response.data;
+		                     
+		               $scope.bbdd=data;
+
+		            });       
+
+		        })();
     
-    $scope.test=function()
-    {
-        $http.post('/test', //nombre del controlador
-        {
-           table: 'propiedad del objeto'
-
-        })
-        .then(function (response)
-        {
-            var data=response.data;
-            
-            $scope.testOk=true;
-            $scope.bbdd=data;
-            
-            $timeout(function()
-            {
-                $scope.testOk=false;
-                
-            },5000);
-            
-
-        });
-    };
   }]);
   
   

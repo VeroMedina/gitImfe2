@@ -26,7 +26,7 @@ app.config(['$routeProvider', '$locationProvider',
     {
       templateUrl: GBL_COFG.urlTemplate('kirby.html'),
     })
-     .when('/insertItems', //controlador de java
+     .when('/formInsert', //controlador de java
     {
       templateUrl: GBL_COFG.urlTemplate('formInsert.html'),
       controller: 'ng-app-controller-edit'
@@ -35,7 +35,8 @@ app.config(['$routeProvider', '$locationProvider',
     {
       templateUrl: GBL_COFG.urlTemplate('search.html'),
       controller: 'ng-app-controller-search'
-    });
+    })
+    ;
   }]);
 
 
