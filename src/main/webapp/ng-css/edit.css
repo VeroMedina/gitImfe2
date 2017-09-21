@@ -1,0 +1,39 @@
+#contenedorEdit
+{
+	position: relative;
+	
+	
+}
+
+#contenedorSelect
+{
+	float: left;
+}
+
+#contSelect
+{
+	float: left;
+	left: 500px;
+	top: 50px;
+	border: 1px solid rgba(50, 50, 50, 0.15);
+}
+
+#botonSelect
+{
+  cursor: pointer;
+  padding: 5px;
+  text-transform: uppercase;
+  background-color: #A9D0F5;
+  border: 1px solid rgba(50, 50, 50, 0.15);
+  position:absolute;
+  left: 600px;
+  top: 45px;	
+}
+
+#contenedorForm
+{
+	
+	float: left;
+	
+}
+

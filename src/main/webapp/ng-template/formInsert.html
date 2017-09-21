@@ -1,17 +1,23 @@
-
-<!-- <form ng-repeat="x in bbdd"> -->
-
-<!-- 	<input ng-repeat="(key,value) in x" type="text" name="{{key}}" value="{{value}}"/> -->
+ 
+ <div id="#contenedorEdit">
+	 
+		 <div id="#contenedorSelect">
+		 
+				 <select id="contSelect" >
+					<option  ng-repeat="x in bbdd" value="{{x.table}}">{{x.table}}</option>
+				</select>
+				
+				<input id="botonSelect" type="button" value="Check"  ng-click="getDataTable()"/>
+		
+		</div>
+		
+		<div id="contenedorForm">
+		
+				<form ng-repeat="x in gettable">
+					<input ng-repeat="(key,value) in x" type="text" name="{{key}}" value="{{value}}"/>
+				</form>
+			
+		</div>
 	
-
-<!-- </form> -->
-
- 	<select id="contSelect" >
- 	
-		<option  ng-repeat="x in bbdd">{{x.table}}</option>
-	  
-	</select>
 	
-	<input id="botonSelect" type="button" value="Check"  ng-click="count()"/>
-	
-	<span id="botonSelect" >{{c}} </span>
+</div>
