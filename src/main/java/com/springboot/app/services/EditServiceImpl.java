@@ -1,6 +1,7 @@
 package com.springboot.app.services;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +21,9 @@ public class EditServiceImpl implements EditService
 
 
   @Override
-  public List<ItemModel> getEdiTable(TestModel obj) throws Exception
+  public List<Map<String, Object>> getEdiTable(TestModel obj) throws Exception
   {
-    List<ItemModel> x = iMapper.getEdiTable(obj);
+	  List<Map<String, Object>> x = iMapper.getEdiTable(obj);
     
     return x;
   }

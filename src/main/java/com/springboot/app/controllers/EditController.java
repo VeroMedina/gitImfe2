@@ -2,6 +2,7 @@ package com.springboot.app.controllers;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -29,11 +30,11 @@ public class EditController
   @RequestMapping(value = "/geteditable",
                   method = RequestMethod.POST,
                   produces = MediaType.APPLICATION_JSON_VALUE) //vamos a usar Json
-  public List<ItemModel> getEdiTable(@RequestBody TestModel obj) throws Exception
+  public  List<Map<String, Object>> getEdiTable(@RequestBody TestModel obj) throws Exception
   {
 	  System.out.println(obj.getTable());
 	  
-      List<ItemModel> x = iService.getEdiTable(obj);
+	  List<Map<String, Object>> x = iService.getEdiTable(obj);
       
     return x;
   }

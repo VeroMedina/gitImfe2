@@ -46,9 +46,30 @@ app.controller('ng-app-controller-edit',
        .then(function (response)
        {
           data = response.data;
-                
+          console.log(JSON.stringify(data));      
           $scope.gettable = data; //Envia al html todos los datos de la tabla indicada
-          console.log(JSON.stringify(data));
+          
+
+       }); 
+     };
+     
+     /**
+      * Boton enviar
+      */
+     $scope.send = function ()
+     {
+  	   console.log(contSelect.value);
+  	   
+       $http.post('/geteditable',
+       {
+    	   table : contSelect.value //Capturamos el valor del option del select (nombre de la tabla)
+       }) 
+       .then(function (response)
+       {
+          data = response.data;
+          console.log(JSON.stringify(data));      
+          $scope.gettable = data; //Envia al html todos los datos de la tabla indicada
+          
 
        }); 
      };

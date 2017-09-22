@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -24,13 +26,13 @@ public class EditMapperImpl implements EditMapper
 
 
   @Override
-  public List<ItemModel> getEdiTable(TestModel obj) throws Exception
+  public List<Map<String, Object>> getEdiTable(TestModel obj) throws Exception
   {
 
 	    String sql = " SELECT * " +
                 " FROM " + obj.getTable() ;
 
-   return JdbcTemplate.query(sql, new BeanPropertyRowMapper(ItemModel.class));
+	    return JdbcTemplate.queryForList(sql);
 
   }
 }

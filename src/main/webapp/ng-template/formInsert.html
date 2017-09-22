@@ -1,23 +1,31 @@
  
- <div id="#contenedorEdit">
-	 
-		 <div id="#contenedorSelect">
-		 
-				 <select id="contSelect" >
-					<option  ng-repeat="x in bbdd" value="{{x.table}}">{{x.table}}</option>
+ <div id="bbdd">
+	 			<select id="contSelect">
+				 	<option>Seleccione Tabla de la BBDD</option>
+					<option ng-repeat="x in bbdd" value="{{x.table}}">{{x.table}}</option>
 				</select>
 				
-				<input id="botonSelect" type="button" value="Check"  ng-click="getDataTable()"/>
+				<input class="botonSelect" type="button" value="Check"  ng-click="getDataTable()"/>
 		
-		</div>
 		
-		<div id="contenedorForm">
+		<div>
 		
-				<form ng-repeat="x in gettable">
-					<input ng-repeat="(key,value) in x" type="text" name="{{key}}" value="{{value}}"/>
+				<form ng-repeat="(key, value) in gettable track by $index">
+					<fieldset>
+       					 <input type="checkbox" />
+      				</fieldset>
+      				<fieldset ng-repeat="(n,v) in value">
+      					<legend>{{n}}</legend>
+      					<input type="text" name="{{n}}" value="{{v}}" placeholder="{{n}}" ng-readonly="'{{n}}'=== 'id'"/>
+      				</fieldset>
+					
 				</form>
-			
 		</div>
-	
-	
+		
+		<input class="botonSelect" type="button" value="Enviar"  ng-click="send()"/>
+		
+		
 </div>
+
+
+  
